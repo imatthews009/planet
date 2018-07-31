@@ -52,6 +52,48 @@ public class Planet {
     return force;
   }
 
+  public double calcForceExertedByX(Planet p) {
+    double dx = p.xxPos - this.xxPos;
 
+    double forceX = (calcForceExertedBy(p)*dx)/calcDistance(p);
+
+    return forceX;
+  }
+
+  public double calcForceExertedByY(Planet p) {
+    double dy = p.yyPos - this.yyPos;
+
+    double forceY = (calcForceExertedBy(p)*dy)/calcDistance(p);
+
+    return forceY;
+  }
+
+  public double calcNetForceExertedByX(Planet[] planets) {
+    double xForceNet = 0;
+
+    for (Planet p : planets) {
+      if(this.equals(p)) {
+        continue;
+      } else {
+        xForceNet = xForceNet + this.calcForceExertedByX(p);
+      }
+
+    }
+    return xForceNet;
+  }
+
+  public double calcNetForceExertedByY(Planet[] planets) {
+    double yForceNet = 0;
+
+    for (Planet p : planets) {
+      if(this.equals(p)) {
+        continue;
+      } else {
+        yForceNet = yForceNet + this.calcForceExertedByY(p);
+      }
+
+    }
+    return yForceNet;
+  }
   
 }
