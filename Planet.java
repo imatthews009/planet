@@ -10,6 +10,9 @@ public class Planet {
   public double mass;
   public String imgFileName;
 
+  public double xNetF;
+  public double yNetF;
+
   static final double gForce = 6.67e-11;
 
   // constructor
@@ -95,5 +98,19 @@ public class Planet {
     }
     return yForceNet;
   }
-  
+
+  public void update(double dt, double fX, double fY) {
+    double xNetAcceleration;
+    double yNetAcceleration;
+
+    xNetAcceleration = fX / this.mass;
+    yNetAcceleration = fY / this.mass;
+    
+    this.xxVel = this.xxVel + (dt * xNetAcceleration);
+    this.yyVel = this.yyVel + (dt * yNetAcceleration);
+
+    this.xxPos = this.xxPos + (dt * this.xxVel);
+    this.yyPos = this.yyPos + (dt * this.yyVel);
+
+  }
 }
