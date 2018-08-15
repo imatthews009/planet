@@ -32,4 +32,7 @@ public class InDemo {
 			}			
 		}
 	}
-} 
+}
+
+new InDemo
+

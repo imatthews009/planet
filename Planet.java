@@ -111,6 +111,12 @@ public class Planet {
 
     this.xxPos = this.xxPos + (dt * this.xxVel);
     this.yyPos = this.yyPos + (dt * this.yyVel);
+    System.out.println(this.xxPos);
+    System.out.println(this.yyPos);
+  }
 
+  public void draw() {
+    String filename = "./images/" + this.imgFileName;
+    StdDraw.picture(this.xxPos, this.yyPos, filename);
   }
 }
